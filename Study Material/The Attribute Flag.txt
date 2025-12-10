@@ -1,0 +1,17 @@
+The Attribute Flag:
+
+The first high order bit (from the left) is the optional bit, setting this bit to 1 means the attribute is optional and to 0 defines a well-known attribute. Origin is a well-known mandatory attribute so this bit is set to zero as you can see.
+
+The second high order bit is the transitive bit. It defines whether the attribute is transitive (value=1) or non-transitive (value=0). Well-known attributes are always transitive and therefore their transitive bit is always set to one.
+
+The third bit is the partial bit, it defines whether the information in the optional transitive attribute is partial (value= 1) or complete (value = 0). Well-known and optional non-transitive are always set to complete. The partial bit is set to 1 in the following cases:
+
+
+Ezoic
+Unrecognized optional transitive attribute that is passed to peers, the sender sets the partial bit.
+Optional transitive attribute attached by some router other than the originator or the route.
+The fourth bit is the extended length bit and it defines whether the attribute length is one octet or more. The last four bits are not currently used.
+
+The sender orders path attributes in an ascending order (according to attribute type code) within the update message as shown in the packet capture above.
+
+You might want to review one of the following posts:
